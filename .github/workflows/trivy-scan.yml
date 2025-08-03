@@ -1,0 +1,16 @@
+name: Trivy SCA Scan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+          sudo mv ./bin/trivy /usr/local/bin/trivy
+
+      - name: Run Trivy Image Scan
+        run: trivy image ${{ secrets.DOCKER_USERNAME }}/node-devsecops-demo:latest
