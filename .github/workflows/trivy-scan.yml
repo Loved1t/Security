@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Trivy
-        run: trivy image docker tag wordpress:latest michaelny/ wordpress:latest 
+        run: trivy image michaelny/node-devsecops-demo:latest
 
           curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
           sudo mv ./bin/trivy /usr/local/bin/trivy
 
       - name: Run Trivy Image Scan
-        run: trivy image ${{ secrets.DOCKER_USERNAME }}/docker tag wordpress:latest michaelny/17may:latest 
+        run: trivy image michaelny/node-devsecops-demo:latest
