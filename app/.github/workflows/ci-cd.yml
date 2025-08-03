@@ -24,7 +24,7 @@ jobs:
         run: echo "This is a demo. No test/build stage here."
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/node-devsecops-demo:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/docker tag wordpress:latest michaelny/17may:latest  .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -33,4 +33,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/node-devsecops-demo:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/docker push michaelny/17thmay:latest
