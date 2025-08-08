@@ -24,10 +24,10 @@ jobs:
         run: echo "This is a demo. No test/build stage here."
 
       - name: Build Docker image
-        run: docker build -t michaelny/17thmay:latest .
+        run: docker build -t loveditsnr/senior:latest .
 
       - name: Tag image for Docker Hub
-        run: docker tag michaelny/17thmay:latest ${{ secrets.DOCKER_USERNAME }}/17thmay:latest
+        run: docker tag wordpress:latest ${{ secrets.DOCKER_USERNAME }}/senior:latest
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -36,4 +36,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/17thmay:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/senior:latest
